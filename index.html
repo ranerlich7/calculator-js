@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="calc.css">
+</head>
+
+<body>
+    <!-- Calculator Body -->
+    <div class="calc-body">
+        <!-- <input id="result"> -->
+        <!-- Calculator Display Screen -->
+        <div class="calc-screen">
+            
+            <div id="calc-operation">
+            </div>
+            <div id="calc-typed">890</div>
+        </div>
+
+        <!-- Calculator Buttons -->
+        <div class="calc-button-row">
+            <button class="ac">AC</button>
+            <button class="opt">&#43;&#47;&#8722;</button>
+            <button class="opt">&#37;</button>
+            <button class="opt">&#247;</button>
+            <button onclick="myclick()">7</button>
+            <button onclick="myclick()">8</button>
+            <button onclick="myclick()">9</button>
+            <button class="opt">&#215;</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class="opt">&#8722;</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class="opt">&#43;</button>
+            <button>0</button>
+            <button>.</button>
+            <button>&#9003;</button>
+            <button class="opt">&#61;</button>
+        </div>
+    </div>
+    <script>
+        let x = 0
+        function mylog(txt){
+            console.log(txt)
+        }
+
+        function myclick(){
+
+            console.log("button clicked")
+            // document.getElementById("calc-typed").innerText += "7"
+            document.getElementById("calc-typed").innerText += event.target.innerText            
+            // document.getElementById("calc-typed").style="color:red;"
+            console.log(event.target.innerText)
+            x++;
+            if (x > 10){
+                console.log('bigger than 10')
+
+            }else{
+                console.log('smaller than 10')
+
+            }
+
+        }
+
+        // function setValue(value){
+        //     document.getElementById("calc-typed").innerText+=event.target.innerText
+        //     console.log(event.target.innerText)
+        // }
+        // function setValue8(){
+        //     document.getElementById("calc-typed").innerText="7"
+        // }
+    </script>
+</body>
+
+</html>
