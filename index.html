@@ -19,7 +19,7 @@
 
             <div id="calc-operation">
             </div>
-            <div id="calc-typed">890</div>
+            <div id="calc-typed">0</div>
         </div>
 
         <!-- Calculator Buttons -->
@@ -39,7 +39,7 @@
             <button onclick="myclick()">1</button>
             <button onclick="myclick()">2</button>
             <button onclick="myclick()">3</button>
-            <button class="opt">+</button>
+            <button onclick="myplus()" class="opt">+</button>
             <button onclick="myclick()">0</button>
             <button onclick="dotclick()">.</button>
             <button>&#9003;</button>
@@ -47,6 +47,14 @@
         </div>
     </div>
     <script>
+        let memory = 0 // here we save the number on operations +,-,* etc.
+
+        function myplus() {
+            console.log('plus pressed');
+            memory += Number(document.getElementById('calc-typed').innerText)
+            document.getElementById('calc-typed').innerText = '0';
+        }
+
         let x = 0
         function mylog(txt) {
             console.log(txt)
@@ -55,6 +63,7 @@
         function myclear() {
             console.log("111111111");
             document.getElementById('calc-typed').innerText = '0';
+            memory = 0;
         }
 
         function dotclick() {
