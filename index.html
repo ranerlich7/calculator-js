@@ -43,16 +43,30 @@
             <button onclick="myclick()">0</button>
             <button onclick="dotclick()">.</button>
             <button>&#9003;</button>
-            <button class="opt">=</button>
+            <button onclick="calcEquals()" class="opt">=</button>
         </div>
     </div>
     <script>
         let memory = 0 // here we save the number on operations +,-,* etc.
+        let action = "="
+
+        function calcEquals() {
+            // console.log("equals pressed!");
+            if (action == "+") {
+                memory += Number(document.getElementById('calc-typed').innerText)
+            }
+            // memory -= Number(document.getElementById('calc-typed').innerText)
+            console.log("memory", memory)
+            document.getElementById('calc-typed').innerText = memory
+            action = "="
+        }
 
         function myplus() {
-            console.log('plus pressed');
+            // console.log('plus pressed');
             memory += Number(document.getElementById('calc-typed').innerText)
+            action = "+"
             document.getElementById('calc-typed').innerText = '0';
+            console.log("memory=", memory)
         }
 
         let x = 0
@@ -61,13 +75,13 @@
         }
 
         function myclear() {
-            console.log("111111111");
+            // console.log("111111111");
             document.getElementById('calc-typed').innerText = '0';
             memory = 0;
         }
 
         function dotclick() {
-            console.log("dot clicked")
+            // console.log("dot clicked")
             if (document.getElementById("calc-typed").innerText.includes('.')) {
                 console.log("includes .")
             } else {
@@ -80,14 +94,17 @@
 
         function myclick() {
 
-            console.log("button clicked")
-            console.log("event!!!!!", event.target.innerText)
+            console.log("memory=", memory)
+            // console.log("button clicked")
+            // console.log("event!!!!!", event.target.innerText)
 
             // checks if value is 0, clear value so next value will be added without zero
             if (document.getElementById("calc-typed").innerText == "0") {
                 document.getElementById("calc-typed").innerText = ""
             }
             document.getElementById("calc-typed").innerText += event.target.innerText
+
+            console.log("memory is", memory);
         }
 
         // function setValue(value){
