@@ -24,7 +24,7 @@
 
         <!-- Calculator Buttons -->
         <div class="calc-button-row">
-            <button class="ac">AC</button>
+            <button onclick="myclear()" class="ac">AC</button>
             <button class="opt">&#43;&#47;&#8722;</button>
             <button class="opt">&#37;</button>
             <button class="opt">&#247;</button>
@@ -32,18 +32,18 @@
             <button onclick="myclick()">8</button>
             <button onclick="myclick()">9</button>
             <button class="opt">&#215;</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
+            <button onclick="myclick()">4</button>
+            <button onclick="myclick()">5</button>
+            <button onclick="myclick()">6</button>
             <button class="opt">&#8722;</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button class="opt">&#43;</button>
-            <button>0</button>
-            <button>.</button>
+            <button onclick="myclick()">1</button>
+            <button onclick="myclick()">2</button>
+            <button onclick="myclick()">3</button>
+            <button class="opt">+</button>
+            <button onclick="myclick()">0</button>
+            <button onclick="dotclick()">.</button>
             <button>&#9003;</button>
-            <button class="opt">&#61;</button>
+            <button class="opt">=</button>
         </div>
     </div>
     <script>
@@ -52,22 +52,33 @@
             console.log(txt)
         }
 
-        function myclick() {
+        function myclear() {
+            console.log("111111111");
+            document.getElementById('calc-typed').innerText = '0';
+        }
 
-            console.log("button clicked")
-            // document.getElementById("calc-typed").innerText += "7"
-            document.getElementById("calc-typed").innerText += event.target.innerText
-            // document.getElementById("calc-typed").style="color:red;"
-            console.log(event.target.innerText)
-            x++;
-            if (x > 10) {
-                console.log('bigger than 10')
-
+        function dotclick() {
+            console.log("dot clicked")
+            if (document.getElementById("calc-typed").innerText.includes('.')) {
+                console.log("includes .")
             } else {
-                console.log('smaller than 10')
+                console.log("does not include")
+                document.getElementById("calc-typed").innerText += event.target.innerText
 
             }
 
+        }
+
+        function myclick() {
+
+            console.log("button clicked")
+            console.log("event!!!!!", event.target.innerText)
+
+            // checks if value is 0, clear value so next value will be added without zero
+            if (document.getElementById("calc-typed").innerText == "0") {
+                document.getElementById("calc-typed").innerText = ""
+            }
+            document.getElementById("calc-typed").innerText += event.target.innerText
         }
 
         // function setValue(value){
